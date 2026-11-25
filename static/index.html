@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HourBank – trade skills, not money</title>
+<meta name="description" content="A community time bank where one hour of any skill equals one hour of any other.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#market"><span class="glass">⏳</span><span>Hour<b>Bank</b></span></a>
+    <div class="who">
+      <label for="me" class="sr">Acting as</label>
+      <select id="me"></select>
+      <span id="balance" class="chip"></span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Your time is the only currency.</h1>
+    <p>Teach an hour of guitar, earn an hour of laptop repair. In HourBank, every hour is worth exactly one hour, whatever the skill.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<nav class="tabs wrap" id="tabs">
+  <button data-tab="market" class="active">Marketplace</button>
+  <button data-tab="mine">My Hours</button>
+  <button data-tab="community">Community</button>
+  <button data-tab="post">+ Post</button>
+</nav>
+
+<main class="wrap">
+  <section id="tab-market" class="tab">
+    <div class="filters">
+      <input id="search" type="search" placeholder="Search skills, cities, keywords…">
+      <div class="seg" id="typeSeg">
+        <button data-type="" class="active">All</button>
+        <button data-type="offer">Offers</button>
+        <button data-type="request">Requests</button>
+      </div>
+    </div>
+    <div class="chips" id="cats"></div>
+    <div id="listings" class="grid"></div>
+  </section>
+
+  <section id="tab-mine" class="tab" hidden></section>
+
+  <section id="tab-community" class="tab" hidden>
+    <div class="two">
+      <div><h2>Top givers</h2><ol id="leaders" class="leaders"></ol></div>
+      <div><h2>Recent thank-yous</h2><div id="activity" class="feed"></div></div>
+    </div>
+    <h2>Meet the members</h2>
+    <div id="members" class="grid small"></div>
+  </section>
+
+  <section id="tab-post" class="tab" hidden>
+    <form id="postForm" class="card form">
+      <h2>Post to the marketplace</h2>
+      <div class="seg wide" id="postType">
+        <button type="button" data-type="offer" class="active">I can offer…</button>
+        <button type="button" data-type="request">I need help with…</button>
+      </div>
+      <label>Title<input name="title" maxlength="80" required placeholder="e.g. Teach you basic photography"></label>
+      <div class="row">
+        <label>Category<select name="category" id="postCat"></select></label>
+        <label>Hours<select name="hours">
+          <option>0.5</option><option selected>1</option><option>1.5</option><option>2</option>
+          <option>3</option><option>4</option><option>6</option><option>8</option></select></label>
+      </div>
+      <label>Description<textarea name="description" maxlength="500" rows="4" required placeholder="What will happen, where, and what should the other person bring?"></textarea></label>
+      <button class="btn primary" type="submit">Publish</button>
+    </form>
+  </section>
+</main>
+
+<div id="modal" class="modal" hidden><div class="modal-box" id="modalBox"></div></div>
+<div id="toast" class="toast" role="status"></div>
+
+<footer class="wrap foot">HourBank is a demo community. Members and exchanges shown are sample data. Pick any member in the top-right to act as them.</footer>
+<script src="/app.js"></script>
+</body>
+</html>
