@@ -362,5 +362,5 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     init_db()
-    print(f"HourBank running at http://localhost:{PORT}  (Ctrl+C to stop)")
+    print(f"HourBank running on port {PORT} (Ctrl+C to stop)")
     ThreadingHTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
